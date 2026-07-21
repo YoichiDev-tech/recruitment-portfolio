@@ -1,3 +1,5 @@
+import profile_pic from '../../assets/images/profile_pic.jpg'
+
 export default function Home() {
     return (
         <div className="max-w-7xl mx-auto px-4 py-16 text-gray-800">
@@ -11,7 +13,7 @@ export default function Home() {
                     </h1>
 
                     <p className="text-lg text-gray-600 mb-6">
-                        I'm Francesco Cole — a frontend developer focused on creating fast,
+                        I'm Francesco Cole — a frontend heavy web developer focused on creating fast,
                         responsive, and production-ready applications using React,
                         TypeScript, Tailwind, and Supabase.
                     </p>
@@ -22,9 +24,12 @@ export default function Home() {
                     </p>
                 </div>
 
-                {/* Right side — Images (to be added later) */}
-                <div className="flex flex-col items-center gap-6">
-                    {/* Photo + screenshot will be added soon */}
+                {/* Right side — Image */}
+                <div className="flex justify-center md:justify-end">
+                    <img src={profile_pic} 
+                        all="Cole profile" 
+                        className='w-125 h-75 object-cover rounded-xl shadow-lg'
+                    />
                 </div>
             </div>
         </div>

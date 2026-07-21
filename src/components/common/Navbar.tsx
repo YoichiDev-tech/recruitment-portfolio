@@ -4,86 +4,122 @@ import { useTheme } from "../../features/theme/useTheme";
 import { useState } from "react";
 
 export default function Navbar() {
-    const { colorTheme } = useTheme();
-    const [open, setOpen] = useState(false);
+  // Safe theme usage
+  const theme = useTheme();
+  if (!theme) return null;
 
-    let navbarBackgroundClass;
+  const { colorTheme } = theme;
 
-    if (colorTheme === "ruby") {
-        navbarBackgroundClass = "bg-gradient-to-r from-rose-700 to-stone-50";
-    }
-    if (colorTheme === "emerald") {
-        navbarBackgroundClass = "bg-gradient-to-r from-emerald-700 to-stone-50";
-    }
-    if (colorTheme === "sapphire") {
-        navbarBackgroundClass = "bg-gradient-to-r from-blue-700 to-stone-50";
-    }
+  const [open, setOpen] = useState(false);
 
-    function toggleMenu() {
-        setOpen((prev) => !prev);
-    }
+  let navbarBackgroundClass = "";
 
-    function closeMenu() {
-        setOpen(false);
-    }
+  if (colorTheme === "ruby") {
+    navbarBackgroundClass = "bg-gradient-to-r from-rose-700 to-stone-50";
+  }
+  if (colorTheme === "emerald") {
+    navbarBackgroundClass = "bg-gradient-to-r from-emerald-700 to-stone-50";
+  }
+  if (colorTheme === "sapphire") {
+    navbarBackgroundClass = "bg-gradient-to-r from-blue-700 to-stone-50";
+  }
 
-    return (
-        <nav className={`w-full text-gray-800 border-b ${navbarBackgroundClass}`}>
-            <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+  function toggleMenu() {
+    setOpen((prev) => !prev);
+  }
 
-                {/* Logo */}
-                <p className="cursor-pointer hover:text-blue-500 transition">
-                    Temporary Yoichi
-                </p>
+  function closeMenu() {
+    setOpen(false);
+  }
 
-                {/* Desktop navigation */}
-                <div className="hidden md:flex items-center gap-8">
-                    <Link to="/" className="cursor-pointer hover:text-blue-500 transition" onClick={closeMenu}>
-                        Home
-                    </Link>
-                    <Link to="/about" className="cursor-pointer hover:text-blue-500 transition" onClick={closeMenu}>
-                        About
-                    </Link>
-                    <Link to="/projects" className="cursor-pointer hover:text-blue-500 transition" onClick={closeMenu}>
-                        Projects
-                    </Link>
-                    <Link to="/contact" className="cursor-pointer hover:text-blue-500 transition" onClick={closeMenu}>
-                        Contact
-                    </Link>
+  return (
+    <nav className={`w-full text-gray-800 border-b ${navbarBackgroundClass}`}>
+      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+        {/* Logo */}
+        <p className="cursor-pointer hover:text-blue-500 transition">
+          O. Francesco Cole
+        </p>
 
-                    <ThemeToggle />
-                </div>
+        {/* Desktop navigation */}
+        <div className="hidden md:flex items-center gap-8">
+          <Link
+            to="/"
+            className="cursor-pointer hover:text-blue-500 transition"
+            onClick={closeMenu}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="cursor-pointer hover:text-blue-500 transition"
+            onClick={closeMenu}
+          >
+            About
+          </Link>
+          <Link
+            to="/projects"
+            className="cursor-pointer hover:text-blue-500 transition"
+            onClick={closeMenu}
+          >
+            Projects
+          </Link>
+          <Link
+            to="/contact"
+            className="cursor-pointer hover:text-blue-500 transition"
+            onClick={closeMenu}
+          >
+            Contact
+          </Link>
 
-                {/* Mobile hamburger button */}
-                <button
-                    className="md:hidden flex flex-col gap-1"
-                    onClick={toggleMenu}
-                >
-                    <span className="w-6 h-0.5 bg-white"></span>
-                    <span className="w-6 h-0.5 bg-white"></span>
-                    <span className="w-6 h-0.5 bg-white"></span>
-                </button>
-            </div>
+          <ThemeToggle />
+        </div>
 
-            {/* Mobile menu */}
-            {open && (
-                <div className="md:hidden flex flex-col gap-4 px-4 py-4">
-                    <Link to="/" className="cursor-pointer hover:text-blue-500 transition" onClick={closeMenu}>
-                        Home
-                    </Link>
-                    <Link to="/about" className="cursor-pointer hover:text-blue-500 transition" onClick={closeMenu}>
-                        About
-                    </Link>
-                    <Link to="/projects" className="cursor-pointer hover:text-blue-500 transition" onClick={closeMenu}>
-                        Projects
-                    </Link>
-                    <Link to="/contact" className="cursor-pointer hover:text-blue-500 transition" onClick={closeMenu}>
-                        Contact
-                    </Link>
+        {/* Mobile hamburger button */}
+        <button
+          className="md:hidden flex flex-col gap-1"
+          onClick={toggleMenu}
+        >
+          <span className="w-6 h-0.5 bg-white"></span>
+          <span className="w-6 h-0.5 bg-white"></span>
+          <span className="w-6 h-0.5 bg-white"></span>
+        </button>
+      </div>
 
-                    <ThemeToggle />
-                </div>
-            )}
-        </nav>
-    );
+      {/* Mobile menu */}
+      {open && (
+        <div className="md:hidden flex flex-col gap-4 px-4 py-4">
+          <Link
+            to="/"
+            className="cursor-pointer hover:text-blue-500 transition"
+            onClick={closeMenu}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="cursor-pointer hover:text-blue-500 transition"
+            onClick={closeMenu}
+          >
+            About
+          </Link>
+          <Link
+            to="/projects"
+            className="cursor-pointer hover:text-blue-500 transition"
+            onClick={closeMenu}
+          >
+            Projects
+          </Link>
+          <Link
+            to="/contact"
+            className="cursor-pointer hover:text-blue-500 transition"
+            onClick={closeMenu}
+          >
+            Contact
+          </Link>
+
+          <ThemeToggle />
+        </div>
+      )}
+    </nav>
+  );
 }

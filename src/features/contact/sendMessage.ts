@@ -1,4 +1,10 @@
-export async function sendMessage(form) {
+type ContactForm = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export async function sendMessage(form: ContactForm) {
   try {
     const res = await fetch(
       "https://frkcbmslrhjdiiliulkr.supabase.co/functions/v1/contact",

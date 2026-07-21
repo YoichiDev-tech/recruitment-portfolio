@@ -1,17 +1,18 @@
-import { createContext, useState } from "react";
-//  Create the context
-const ThemeContext = createContext(null);
+import { createContext, useState, ReactNode } from "react";
 
-// Create the provider 
-export default function ThemeProvider({ children }) {
-    const [colorTheme, setColorTheme] = useState("ruby");
+type ThemeContextType = {
+  colorTheme: string;
+  setColorTheme: React.Dispatch<React.SetStateAction<string>>;
+};
 
-    return (
-        <ThemeContext.Provider value={{ colorTheme, setColorTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    );
+export const ThemeContext = createContext<ThemeContextType | null>(null);
+
+export default function ThemeProvider({ children }: { children: ReactNode }) {
+  const [colorTheme, setColorTheme] = useState("ruby");
+
+  return (
+    <ThemeContext.Provider value={{ colorTheme, setColorTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }
-
-// Export the context as named
-export { ThemeContext };

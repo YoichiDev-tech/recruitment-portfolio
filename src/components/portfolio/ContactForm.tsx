@@ -3,61 +3,60 @@ import { validateContactForm } from "../../features/contact/validateContactForm"
 import { sendMessage } from "../../features/contact/sendMessage";
 
 export default function ContactForm() {
-    const [form, setForm] = useState({ name: "", email: "", message: "" });
-    const [status, setStatus] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-    function handleChange(e) {
-        setForm({ ...form, [e.target.name]: e.target.value });
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const errors = validateContactForm(form);
+    if (errors.length > 0) {
+      alert(errors.join("\n"));
+      return;
     }
 
-    async function handleSubmit(e) {
-        e.preventDefault();
+    const result = await sendMessage(form);
+    alert(result);
+  }
 
-        const errors = validateContactForm(form);
-        if (errors.length > 0) {
-            setStatus(errors[0]);
-            return;
-        }
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <input
+        name="name"
+        value={form.name}
+        onChange={handleChange}
+        placeholder="Your name"
+        className="border p-2"
+      />
 
-        const result = await sendMessage(form);
-        setStatus(result);
-    }
+      <input
+        name="email"
+        value={form.email}
+        onChange={handleChange}
+        placeholder="Your email"
+        className="border p-2"
+      />
 
-    return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <textarea
+        name="message"
+        value={form.message}
+        onChange={handleChange}
+        placeholder="Your message"
+        className="border p-2"
+      />
 
-            <input
-                name="name"
-                placeholder="Your Name"
-                value={form.name}
-                onChange={handleChange}
-                className="border p-3 rounded"
-                required
-            />
-
-            <input
-                name="email"
-                placeholder="Your Email"
-                value={form.email}
-                onChange={handleChange}
-                className="border p-3 rounded"
-                required
-            />
-
-            <textarea
-                name="message"
-                placeholder="Your Message"
-                value={form.message}
-                onChange={handleChange}
-                className="border p-3 rounded h-32"
-                required
-            />
-
-            <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                Send Message
-            </button>
-
-            {status && <p className="text-sm text-gray-700 mt-2">{status}</p>}
-        </form>
-    );
+      <button className="bg-blue-600 text-white px-4 py-2 rounded">
+        Send
+      </button>
+    </form>
+  );
 }

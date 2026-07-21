@@ -1,9 +1,15 @@
-export function validateContactForm({ name, email, message }) {
-    const errors = [];
+type ContactForm = {
+  name: string;
+  email: string;
+  message: string;
+};
 
-    if (!name.trim()) errors.push("Name is required.");
-    if (!email.includes("@")) errors.push("Email is invalid.");
-    if (message.length < 10) errors.push("Message must be at least 10 characters.");
+export function validateContactForm({ name, email, message }: ContactForm) {
+  const errors: string[] = [];
 
-    return errors;
+  if (!name.trim()) errors.push("Name is required.");
+  if (!email.trim()) errors.push("Email is required.");
+  if (!message.trim()) errors.push("Message is required.");
+
+  return errors;
 }
