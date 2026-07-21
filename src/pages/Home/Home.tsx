@@ -1,4 +1,4 @@
-import profile_pic from '../../assets/images/profile_pic.jpg'
+import profile_pic1 from '../../assets/images/profile_pic1.jpg'
 
 export default function Home() {
     return (
@@ -26,8 +26,8 @@ export default function Home() {
 
                 {/* Right side — Image */}
                 <div className="flex justify-center md:justify-end">
-                    <img src={profile_pic} 
-                        all="Cole profile" 
+                    <img src={profile_pic1} 
+                        alt="Cole profile" 
                         className='w-125 h-75 object-cover rounded-xl shadow-lg'
                     />
                 </div>
