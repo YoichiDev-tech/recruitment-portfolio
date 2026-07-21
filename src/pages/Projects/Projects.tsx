@@ -3,7 +3,7 @@ import Hero from '../../components/portfolio/Hero';
 
 export default function Projects() {
     return (
-        <div className="max-w-7xl mx-auto px-4 py-12 text-gray-800">
+        <div className="max-w-7xl mx-auto px-4 py-12 text-gray-800 cursor-default">
 
             {/* Hero Section */}
             <Hero />
