@@ -13,15 +13,22 @@ export default function Projects() {
                 <h2 className="text-3xl font-bold mb-6">Featured Project</h2>
 
                 <div className="border rounded-lg p-6 shadow-md">
-                    <h3 className="text-xl font-semibold mb-2">Cafe Shop</h3>
+                    <h3 className="text-xl font-semibold mb-2">Invoice Generator App</h3>
                     <p className="mb-4">
-                        A fully deployed Cafe website showcasing menu, atmosphere and brand identity.
-                        Built as a fast and responsive frontend experience for real users.
+                        A professional, client-ready invoice generator. This tool allows freelancers,
+                        small business owners and operators to create clean and branded invoices
+                        with a modern UI and export them as high-quality PDFs. 
                     </p>
 
-                    <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                   <a
+                        href="https://invoice-generator-41ubdd5uf-yoichidev-techs-projects.vercel.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                    >
                         View Project
-                    </button>
+                    </a>
+
                 </div>
             </section>
 
@@ -41,11 +48,20 @@ export default function Projects() {
 
                     {/* Prototype */}
                     <div className="border rounded-lg p-6 shadow-md">
-                        <h3 className="text-xl font-semibold mb-2">Invoice Generator Prototype</h3>
-                        <p className="mb-4">Building my own personal invoice generator prototype.</p>
-                        <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                        <h3 className="text-xl font-semibold mb-2">Waste Opportunity Finder</h3>
+                        <p className="mb-4">
+                            A simple, fast and user-friendly web application designed to help businesses
+                            identify potential reuse, resale or recycling opportunities for their waste output.
+                        </p>
+                        <a
+                            href="https://wof-form-eta.vercel.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                        >
                             View Prototype
-                        </button>
+                        </a>
+
                     </div>
 
                 </div>

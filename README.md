@@ -59,6 +59,10 @@ Status: Unfinished
 - Connected frontend contact form to Supabase Edge Function + Resend
 - Added real email delivery and validation flow
 
+### 29/07/2026
+- Added complete version (MVP) of the invoice generator app
+- Added WOF-Form to the prototypes
+
 ## Author
 
 Yoichi dev
