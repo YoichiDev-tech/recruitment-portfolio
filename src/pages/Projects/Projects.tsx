@@ -11,7 +11,7 @@ export default function Projects() {
             <section className="mb-16 mt-12">
                 <h2 className="text-3xl font-bold mb-6">Featured Project</h2>
 
-                <div className="border rounded-lg p-6 shadow-md">
+                <div className="border rounded-lg p-6 shadow-md mb-8">
                     <h3 className="text-xl font-semibold mb-2">Invoice Generator App</h3>
                     <p className="mb-4">
                         A professional, client-ready invoice generator. This tool allows freelancers,
@@ -30,7 +30,7 @@ export default function Projects() {
 
                 </div>
 
-                <div className="border rounded-lg p-6 shadow-md">
+                <div className="border rounded-lg p-6 shadow-md mb-8">
                     <h3 className="text-xl font-semibold mb-2">BrightWave-studio</h3>
                     <p className="mb-4">
                         A modern, responsive website for a creative agency. This project showcases
@@ -47,7 +47,7 @@ export default function Projects() {
                     </a>
                 </div>
 
-                <div className="border rounded-lg p-6 shadow-md">
+                <div className="border rounded-lg p-6 shadow-md mb-8">
                     <h3 className="text-xl font-semibold mb-2">ServeSync</h3>
                     <p className='mb-4'>
                         A new workflow automation management tool designed to streamline team

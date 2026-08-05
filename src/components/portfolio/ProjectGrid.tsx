@@ -1,4 +1,3 @@
-import { useProjects } from "../../features/projects/useProjects";
 import ProjectCard from "./ProjectCard";
 
 export default function ProjectGrid() {
