@@ -30,6 +30,43 @@ export default function Projects() {
                     </a>
 
                 </div>
+
+                <div className="border rounded-lg p-6 shadow-md">
+                    <h3 className="text-xl font-semibold mb-2">BrightWave-studio</h3>
+                    <p className="mb-4">
+                        A modern, responsive website for a creative agency. This project showcases
+                        the agency's portfolio, services, templates to choose from and more, making the
+                        web page user-friendly and visually appealing.
+                    </p>
+                    <a
+                        href="https://bright-wave-studio.vercel.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                    >
+                        View Project
+                    </a>
+                </div>
+
+                <div className="border rounded-lg p-6 shadow-md">
+                    <h3 className="text-xl font-semibold mb-2">ServeSync</h3>
+                    <p className='mb-4'>
+                        A new workflow automation management tool designed to streamline team
+                        collaboration and task tracking. 
+                        ServeSync offers a clean interface, real-time updates, and integration 
+                        with popular productivity tools to enhance team efficiency.
+                        Designed for small and large teams.
+                    </p>
+
+                    <a
+                        href="https://my-serve-sync.vercel.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                    >
+                        View Project
+                    </a>
+                </div>
             </section>
 
             {/* All Projects */}
