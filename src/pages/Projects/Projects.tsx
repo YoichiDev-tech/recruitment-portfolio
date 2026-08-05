@@ -1,4 +1,3 @@
-import ProjectGrid from '../../components/portfolio/ProjectGrid';
 import Hero from '../../components/portfolio/Hero';
 
 export default function Projects() {
@@ -67,14 +66,6 @@ export default function Projects() {
                         View Project
                     </a>
                 </div>
-            </section>
-
-            {/* All Projects */}
-            <section className="mb-16">
-                <h2 className="text-3xl font-bold mb-6">Projects</h2>
-
-                {/* Project grid */}
-                <ProjectGrid />
             </section>
 
             {/* Prototype Section */}
