@@ -63,6 +63,18 @@ Status: Unfinished
 - Added complete version (MVP) of the invoice generator app
 - Added WOF-Form to the prototypes
 
+### 08/08/2026
+- Added ServeSync project
+- Added BrightWave-studio project
+
+### 09/08/2026
+- Reworked UI of the entire project
+- Added icons to the stack
+- Following the "Supabase's" background color style
+- Shorter About section + added education
+- GitHub + LinkedIn added to the footer
+- All project "redirects" to the deployment link (Vercel)
+
 ## Author
 
 Yoichi dev
