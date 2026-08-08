@@ -1,100 +1,107 @@
 import Hero from '../../components/portfolio/Hero';
+import Container from '../../components/ui/Container';
+import Card from '../../components/ui/Card';
+import Badge from '../../components/ui/Badge';
+import Button from '../../components/ui/Button';
+import { formatDate } from '../../utils/formatDate';
+
+type Entry = {
+  code: string;
+  title: string;
+  desc: string;
+  stack: string;
+  href: string;
+  status: "live" | "prototype";
+  logged: string;
+};
+
+const featured: Entry[] = [
+  {
+    code: "LOG-01",
+    title: "Invoice Generator App",
+    desc: "A professional, client-ready invoice generator for freelancers and small businesses — clean branded invoices exported as high-quality PDFs.",
+    stack: "React · TypeScript · Supabase",
+    href: "https://invoice-generator-41ubdd5uf-yoichidev-techs-projects.vercel.app",
+    status: "live",
+    logged: "2026-05-01",
+  },
+  {
+    code: "LOG-02",
+    title: "BrightWave Studio",
+    desc: "A modern, responsive site for a creative agency — portfolio, services, and selectable templates, built for clarity and usability.",
+    stack: "React · TypeScript · Tailwind",
+    href: "https://bright-wave-studio.vercel.app",
+    status: "live",
+    logged: "2026-06-01",
+  },
+  {
+    code: "LOG-03",
+    title: "ServeSync",
+    desc: "A workflow automation tool for hospitality teams — real-time task tracking and a clean interface, built for small and large teams alike.",
+    stack: "React · TypeScript · Supabase · Vercel",
+    href: "https://my-serve-sync.vercel.app",
+    status: "live",
+    logged: "2026-07-01",
+  },
+];
+
+const prototypes: Entry[] = [
+  {
+    code: "LOG-04",
+    title: "Waste Opportunity Finder",
+    desc: "A fast, user-friendly app helping businesses identify reuse, resale, or recycling opportunities for their waste output.",
+    stack: "React · TypeScript",
+    href: "https://wof-form-eta.vercel.app",
+    status: "prototype",
+    logged: "2026-07-15",
+  },
+];
+
+function EntryCard({ entry, delay = 0 }: { entry: Entry; delay?: number }) {
+  return (
+    <Card
+      interactive
+      className="flex flex-col gap-4 animate-fade-up"
+      style={{ animationDelay: `${delay}ms` }}
+    >
+      <div className="flex items-center justify-between">
+        <span className="font-mono text-xs text-amber tracking-widest">{entry.code}</span>
+        <Badge tone={entry.status === "live" ? "amber" : "wire"}>
+          {entry.status === "live" ? "deployed" : "prototype"}
+        </Badge>
+      </div>
+      <p className="font-mono text-[11px] text-slate -mt-2">logged {formatDate(entry.logged)}</p>
+      <h3 className="font-display text-xl font-semibold text-offwhite">{entry.title}</h3>
+      <p className="text-slate leading-relaxed">{entry.desc}</p>
+      <p className="font-mono text-xs text-slate">{entry.stack}</p>
+      <Button href={entry.href} variant="primary" className="w-fit mt-2">
+        View project →
+      </Button>
+    </Card>
+  );
+}
 
 export default function Projects() {
-    return (
-        <div className="max-w-7xl mx-auto px-4 py-12 text-gray-800 cursor-default">
+  return (
+    <Container className="py-16">
+      <Hero />
 
-            {/* Hero Section */}
-            <Hero />
-
-            {/* Featured Project */}
-            <section className="mb-16 mt-12">
-                <h2 className="text-3xl font-bold mb-6">Featured Project</h2>
-
-                <div className="border rounded-lg p-6 shadow-md mb-8">
-                    <h3 className="text-xl font-semibold mb-2">Invoice Generator App</h3>
-                    <p className="mb-4">
-                        A professional, client-ready invoice generator. This tool allows freelancers,
-                        small business owners and operators to create clean and branded invoices
-                        with a modern UI and export them as high-quality PDFs. 
-                    </p>
-
-                   <a
-                        href="https://invoice-generator-41ubdd5uf-yoichidev-techs-projects.vercel.app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-                    >
-                        View Project
-                    </a>
-
-                </div>
-
-                <div className="border rounded-lg p-6 shadow-md mb-8">
-                    <h3 className="text-xl font-semibold mb-2">BrightWave-studio</h3>
-                    <p className="mb-4">
-                        A modern, responsive website for a creative agency. This project showcases
-                        the agency's portfolio, services, templates to choose from and more, making the
-                        web page user-friendly and visually appealing.
-                    </p>
-                    <a
-                        href="https://bright-wave-studio.vercel.app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-                    >
-                        View Project
-                    </a>
-                </div>
-
-                <div className="border rounded-lg p-6 shadow-md mb-8">
-                    <h3 className="text-xl font-semibold mb-2">ServeSync</h3>
-                    <p className='mb-4'>
-                        A new workflow automation management tool designed to streamline team
-                        collaboration and task tracking. 
-                        ServeSync offers a clean interface, real-time updates, and integration 
-                        with popular productivity tools to enhance team efficiency.
-                        Designed for small and large teams.
-                    </p>
-
-                    <a
-                        href="https://my-serve-sync.vercel.app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-                    >
-                        View Project
-                    </a>
-                </div>
-            </section>
-
-            {/* Prototype Section */}
-            <section>
-                <h2 className="text-3xl font-bold mb-6">Prototypes</h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                    {/* Prototype */}
-                    <div className="border rounded-lg p-6 shadow-md">
-                        <h3 className="text-xl font-semibold mb-2">Waste Opportunity Finder</h3>
-                        <p className="mb-4">
-                            A simple, fast and user-friendly web application designed to help businesses
-                            identify potential reuse, resale or recycling opportunities for their waste output.
-                        </p>
-                        <a
-                            href="https://wof-form-eta.vercel.app"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-                        >
-                            View Prototype
-                        </a>
-
-                    </div>
-
-                </div>
-            </section>
-
+      <section className="mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {featured.map((entry, i) => (
+            <EntryCard key={entry.code} entry={entry} delay={i * 100} />
+          ))}
         </div>
-    );
+      </section>
+
+      <section>
+        <p className="font-mono text-xs text-slate tracking-widest mb-6">PROTOTYPES</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {prototypes.map((entry, i) => (
+            <EntryCard key={entry.code} entry={entry} delay={i * 100} />
+          ))}
+        </div>
+      </section>
+    </Container>
+  );
 }

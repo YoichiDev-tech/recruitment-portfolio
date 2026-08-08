@@ -34,15 +34,15 @@ Status: Unfinished
 
 ## Bugs (on current commit)
 
-- Contact form success message sometimes delays due to first‑time Resend warm‑up
+- Contact form success message sometimes delays due to first-time Resend warm-up
 - Some sections still use placeholder text
 - Homepage hero content not finalized
 
 ## Improvements
 
 - Add animations to hero + skills section
-- Add project case‑study pages
-- Add rate‑limiting + spam protection to contact form
+- Add project case-study pages
+- Add rate-limiting + spam protection to contact form
 - Add loading states and UI polish
 - Add more projects once completed
 

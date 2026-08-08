@@ -1,25 +1,17 @@
-export default function SkillBadge({ skill }: { skill: string }) {
+import type { IconType } from "react-icons";
+
+type SkillBadgeProps = {
+  skill: string;
+  icon?: IconType;
+  color?: string;
+};
+
+export default function SkillBadge({ skill, icon: Icon, color }: SkillBadgeProps) {
   return (
-    <span
-      className="
-        inline-block 
-        px-3 py-1 
-        text-sm 
-        rounded-full 
-        border 
-        border-gray-300 
-        bg-gray-100 
-        text-gray-700
-        transition 
-        duration-200 
-        hover:bg-blue-600 
-        hover:text-white 
-        hover:border-blue-600
-        hover:scale-105
-        cursor-pointer
-      "
-    >
-      {skill}
-    </span>
+    <div className="switch-plate">
+      <span className="switch-toggle" aria-hidden="true" />
+      {Icon && <Icon size={16} color={color} aria-hidden="true" />}
+      <span className="text-sm font-mono text-offwhite">{skill}</span>
+    </div>
   );
 }

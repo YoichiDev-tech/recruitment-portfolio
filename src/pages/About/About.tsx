@@ -1,53 +1,66 @@
 import SkillBadge from "../../components/portfolio/SkillBadge";
+import Container from "../../components/ui/Container";
+import Section from "../../components/ui/Section";
+import Card from "../../components/ui/Card";
+import Badge from "../../components/ui/Badge";
+import { stack } from "../../data/stack";
+
+const soft = ["Communication & Empathy", "Crisis Management", "Collaboration", "Self-Direction"];
+
+const education = [
+  { label: "freeCodeCamp — Full self-directed curriculum", status: "in progress" as const },
+  { label: "Technical Assistant Diploma", status: "completed" as const },
+  { label: "Electrical Operator Qualification", status: "completed" as const },
+];
 
 export default function About() {
-    return (
-        <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800 cursor-default">
+  return (
+    <Container narrow className="py-16">
+      <p className="font-mono text-xs text-amber tracking-widest mb-4 animate-fade-up">ABOUT</p>
+      <h1 className="font-display text-4xl font-bold mb-8 text-offwhite animate-fade-up-delay-1">
+        From service floors and switchboards to the frontend.
+      </h1>
 
-            <h1 className="text-4xl font-bold mb-6">About Me</h1>
+      <p className="mb-4 text-lg text-slate leading-relaxed">
+        I'm Francesco — a frontend-heavy web developer focused on building clean,
+        fast, real-world products. Before tech, I spent seven years in restaurants
+        and hotels, and hold a technical diploma plus a qualification as an
+        electrical operator. Both trades taught me the same thing: things either
+        work under pressure, or they don't.
+      </p>
+      <p className="mb-12 text-lg text-slate leading-relaxed">
+        Today I build modern web applications with React, TypeScript, Tailwind,
+        and Supabase — self-taught, currently deepening my fundamentals through
+        freeCodeCamp, and shipping deployable projects rather than exercises.
+      </p>
 
-            <p className="mb-4 text-lg">
-                I'm Francesco, a frontend-heavy web developer focused on building clean, fast,
-                and real-world products. Before tech, I spent years working in
-                restaurants and hotels — learning discipline, communication, and
-                how to deliver great experiences.
-            </p>
-
-            <p className="mb-8 text-lg">
-                Today, I build modern web applications using React, TypeScript,
-                Tailwind, and Supabase. My goal is to create fullstack products
-                that solve real problems and help real users.
-            </p>
-
-            {/* Skills */}
-            <section className="mb-12">
-                <h2 className="text-2xl font-bold mb-4">Technical Skills</h2>
-
-                <div className="flex flex-wrap gap-3 cursor-default">
-                    <SkillBadge skill="HTML5" />
-                    <SkillBadge skill="CSS3" />
-                    <SkillBadge skill="JavaScript" />
-                    <SkillBadge skill="ES6+" />
-                    <SkillBadge skill="React" />
-                    <SkillBadge skill="TypeScript" />
-                    <SkillBadge skill="Tailwind CSS" />
-                    <SkillBadge skill="Supabase" />
-                    <SkillBadge skill="Frontend Development" />
-                    <SkillBadge skill="UI Implementation" />
-                </div>
-            </section>
-
-            {/* Soft Skills */}
-            <section>
-                <h2 className="text-2xl font-bold mb-4">Soft Skills</h2>
-
-                <div className="flex flex-wrap gap-3 cursor-default">
-                    <SkillBadge skill="Communication & Empathy" />
-                    <SkillBadge skill="Crisis Management & Adaptability" />
-                    <SkillBadge skill="Collaboration & Teamwork" />
-                    <SkillBadge skill="Self-Direction" />
-                </div>
-            </section>
+      <Section eyebrow="TECHNICAL — LIVE CIRCUITS" className="py-0 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          {stack.map(({ name, icon, color }) => (
+            <SkillBadge key={name} skill={name} icon={icon} color={color} />
+          ))}
         </div>
-    );
+      </Section>
+
+      <Section eyebrow="SOFT SKILLS" className="py-0 mb-12">
+        <div className="grid grid-cols-2 gap-3">
+          {soft.map((s) => (
+            <SkillBadge key={s} skill={s} />
+          ))}
+        </div>
+      </Section>
+
+      <Card>
+        <p className="font-mono text-xs text-slate tracking-widest mb-4">EDUCATION</p>
+        <ul className="space-y-3 text-slate">
+          {education.map((item) => (
+            <li key={item.label} className="flex justify-between gap-4 flex-wrap items-center">
+              <span className="text-offwhite">{item.label}</span>
+              <Badge tone={item.status === "completed" ? "amber" : "wire"}>{item.status}</Badge>
+            </li>
+          ))}
+        </ul>
+      </Card>
+    </Container>
+  );
 }

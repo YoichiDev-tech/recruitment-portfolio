@@ -1,15 +1,43 @@
 import ContactForm from "../../components/portfolio/ContactForm";
+import Container from "../../components/ui/Container";
+import Card from "../../components/ui/Card";
 
 export default function Contact() {
-    return (
-        <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800 cursor-default">
-            <h1 className="text-4xl font-bold mb-6">Contact Me</h1>
+  return (
+    <Container narrow className="py-16">
+      <p className="font-mono text-xs text-amber tracking-widest mb-4">CONTACT</p>
+      <h1 className="font-display text-4xl font-bold mb-5 text-offwhite">Let's talk.</h1>
+      <p className="mb-10 text-lg text-slate leading-relaxed">
+        Open to junior frontend roles, internships, and freelance work —
+        in-office, hybrid, or remote. Based in Poland through mid-September,
+        relocating to the Milan area from September 15th.
+      </p>
 
-            <p className="mb-6 text-lg">
-                Tell me about your project. I'll get back to you within 24 hours.
-            </p>
+      <Card className="mb-10 flex flex-col sm:flex-row gap-4 sm:gap-8 font-mono text-sm">
+        <a href="mailto:yoichi_dev@proton.me" className="text-offwhite hover:text-amber transition">
+          yoichi_dev@proton.me
+        </a>
+        
+        <a
+          href="https://www.linkedin.com/in/o-francesco-derek-cole-860b59427/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-offwhite hover:text-amber transition"
+        >
+          LinkedIn
+        </a>
+        
+        <a
+          href="https://github.com/YoichiDev-tech"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-offwhite hover:text-amber transition"
+        >
+          GitHub
+        </a>
+      </Card>
 
-            <ContactForm />
-        </div>
-    );
+      <ContactForm />
+    </Container>
+  );
 }

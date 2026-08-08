@@ -1,40 +1,39 @@
 export default function Footer() {
-    return (
-        <footer className="w-full border-t py-6 text-gray-700">
-            <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+  return (
+    <footer className="w-full border-t border-white/8 py-8 bg-graphite">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p className="text-xs font-mono text-slate">
+          © 2026 O. Francesco Cole — built with React &amp; Tailwind
+        </p>
 
-                {/* Left side */}
-                <p className="text-sm">
-                    © 2026 Cole — All rights reserved
-                </p>
-
-                {/* Right side */}
-                <div className="flex items-center gap-6 text-sm">
-                    <a 
-                        href="https://github.com/YoichiDev-tech" 
-                        target="_blank" 
-                        className="hover:text-blue-500 transition"
-                    >
-                        GitHub
-                    </a>
-
-                    <a 
-                        href="https://linkedin.com/in/YOUR_USERNAME" 
-                        target="_blank" 
-                        className="hover:text-blue-500 transition"
-                    >
-                        LinkedIn
-                    </a>
-
-                    <a 
-                        href="mailto:dereckcole97@gmail.com"
-                        className="hover:text-blue-500 transition"
-                    >
-                        Email
-                    </a>
-                </div>
-
-            </div>
-        </footer>
-    );
+        <div className="flex items-center gap-6 text-sm">
+          
+          <a
+            href="https://github.com/YoichiDev-tech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate hover:text-amber transition"
+          >
+            GitHub
+          </a>
+          
+          <a
+            href="https://www.linkedin.com/in/o-francesco-derek-cole-860b59427/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate hover:text-amber transition"
+          >
+            LinkedIn
+          </a>
+          
+          <a
+            href="mailto:yoichi_dev@proton.me"
+            className="text-slate hover:text-amber transition"
+          >
+            Email
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
 }

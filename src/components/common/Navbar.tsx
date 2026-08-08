@@ -1,123 +1,72 @@
-import { Link } from "react-router-dom";
-import ThemeToggle from "./ThemeToggle";
-import { useTheme } from "../../features/theme/useTheme";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
+const links = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/projects", label: "Projects" },
+  { to: "/contact", label: "Contact" },
+];
+
 export default function Navbar() {
-  // Safe theme usage
-  const theme = useTheme();
-  if (!theme) return null;
-
-  const { colorTheme } = theme;
-
   const [open, setOpen] = useState(false);
-
-  let navbarBackgroundClass = "";
-
-  if (colorTheme === "ruby") {
-    navbarBackgroundClass = "bg-gradient-to-r from-rose-700 to-stone-50";
-  }
-  if (colorTheme === "emerald") {
-    navbarBackgroundClass = "bg-gradient-to-r from-emerald-700 to-stone-50";
-  }
-  if (colorTheme === "sapphire") {
-    navbarBackgroundClass = "bg-gradient-to-r from-blue-700 to-stone-50";
-  }
-
-  function toggleMenu() {
-    setOpen((prev) => !prev);
-  }
-
-  function closeMenu() {
-    setOpen(false);
-  }
+  const { pathname } = useLocation();
+  const closeMenu = () => setOpen(false);
 
   return (
-    <nav className={`w-full text-gray-800 border-b ${navbarBackgroundClass}`}>
-      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <p className="cursor-pointer hover:text-blue-500 transition">
-          O. Francesco Cole
-        </p>
+    <nav className="w-full bg-graphite border-b border-white/8 sticky top-0 z-30 backdrop-blur supports-[backdrop-filter]:bg-graphite/90">
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <Link to="/" className="font-mono text-sm tracking-tight text-offwhite hover:text-amber transition">
+          F.COLE<span className="text-amber">_</span>
+        </Link>
 
-        {/* Desktop navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <Link
-            to="/"
-            className="cursor-pointer hover:text-blue-500 transition"
-            onClick={closeMenu}
-          >
-            Home
-          </Link>
-          <Link
-            to="/about"
-            className="cursor-pointer hover:text-blue-500 transition"
-            onClick={closeMenu}
-          >
-            About
-          </Link>
-          <Link
-            to="/projects"
-            className="cursor-pointer hover:text-blue-500 transition"
-            onClick={closeMenu}
-          >
-            Projects
-          </Link>
-          <Link
-            to="/contact"
-            className="cursor-pointer hover:text-blue-500 transition"
-            onClick={closeMenu}
-          >
-            Contact
-          </Link>
-
-          <ThemeToggle />
+          {links.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              onClick={closeMenu}
+              className={`text-sm font-medium transition ${
+                pathname === l.to ? "text-amber" : "text-slate hover:text-offwhite"
+              }`}
+            >
+              {l.label}
+            </Link>
+          ))}
+          <span className="flex items-center gap-2 text-xs font-mono text-slate pl-4 border-l border-white/10">
+            <span className="status-dot" /> open to work
+          </span>
         </div>
 
-        {/* Mobile hamburger button */}
         <button
-          className="md:hidden flex flex-col gap-1"
-          onClick={toggleMenu}
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          onClick={() => setOpen((p) => !p)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
         >
-          <span className="w-6 h-0.5 bg-white"></span>
-          <span className="w-6 h-0.5 bg-white"></span>
-          <span className="w-6 h-0.5 bg-white"></span>
+          <span className={`w-6 h-0.5 bg-offwhite transition ${open ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`w-6 h-0.5 bg-offwhite transition ${open ? "opacity-0" : ""}`} />
+          <span className={`w-6 h-0.5 bg-offwhite transition ${open ? "-rotate-45 -translate-y-2" : ""}`} />
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden flex flex-col gap-4 px-4 py-4">
-          <Link
-            to="/"
-            className="cursor-pointer hover:text-blue-500 transition"
-            onClick={closeMenu}
-          >
-            Home
-          </Link>
-          <Link
-            to="/about"
-            className="cursor-pointer hover:text-blue-500 transition"
-            onClick={closeMenu}
-          >
-            About
-          </Link>
-          <Link
-            to="/projects"
-            className="cursor-pointer hover:text-blue-500 transition"
-            onClick={closeMenu}
-          >
-            Projects
-          </Link>
-          <Link
-            to="/contact"
-            className="cursor-pointer hover:text-blue-500 transition"
-            onClick={closeMenu}
-          >
-            Contact
-          </Link>
-
-          <ThemeToggle />
+        <div className="md:hidden flex flex-col gap-1 px-6 pb-5 border-t border-white/8">
+          {links.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              onClick={closeMenu}
+              className={`py-3 text-sm font-medium border-b border-white/5 ${
+                pathname === l.to ? "text-amber" : "text-slate"
+              }`}
+            >
+              {l.label}
+            </Link>
+          ))}
+          <span className="flex items-center gap-2 text-xs font-mono text-slate pt-3">
+            <span className="status-dot" /> open to work
+          </span>
         </div>
       )}
     </nav>

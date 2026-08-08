@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 // Layout
 import Layout from './components/common/Layout';
@@ -9,9 +10,20 @@ import About from './pages/About//About';
 import Projects from './pages/Projects/Projects';
 import Contact from './pages/Contact/Contact';
 
+import { scrollToTop } from './utils/scrollToTop';
+
+function ScrollToTopOnNavigate() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    scrollToTop("auto");
+  }, [pathname]);
+  return null;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTopOnNavigate />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
