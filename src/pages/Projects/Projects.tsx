@@ -27,10 +27,10 @@ const featured: Entry[] = [
   },
   {
     code: "LOG-02",
-    title: "BrightWave Studio",
+    title: "PrismWave Studio",
     desc: "A modern, responsive site for a creative agency — portfolio, services, and selectable templates, built for clarity and usability.",
     stack: "React · TypeScript · Tailwind",
-    href: "https://bright-wave-studio.vercel.app",
+    href: "https://prismwave-studio.vercel.app",
     status: "live",
     logged: "2026-06-01",
   },

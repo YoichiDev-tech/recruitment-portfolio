@@ -159,12 +159,20 @@ body {
   border: 1px solid var(--color-accent-soft);
 }
 
+/* Outer ring rotates slowly — dashed so the motion actually reads;
+   a solid circle spinning looks identical frame to frame */
 .portrait-halo::after {
   content: '';
   position: absolute;
   inset: -42px;
   border-radius: 999px;
-  border: 1px solid rgba(84, 69, 224, 0.14);
+  border: 1px dashed rgba(84, 69, 224, 0.35);
+  animation: spin-slow 16s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Tech marquee */

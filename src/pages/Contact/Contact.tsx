@@ -9,8 +9,8 @@ export default function Contact() {
       <h1 className="font-display text-4xl font-bold mb-5 text-ink">Let's talk.</h1>
       <p className="mb-10 text-lg text-ink-soft leading-relaxed">
         Open to junior frontend roles, internships, and freelance work —
-        in-office, hybrid, or remote. Based in Poland through mid-September,
-        relocating to the Milan area from September 15th.
+        in-office, hybrid, or remote. Currently in Poland,
+        considering relocating for job opportunities.
       </p>
 
       <Card className="mb-10 flex flex-col sm:flex-row gap-4 sm:gap-8 font-mono text-sm">

@@ -8,10 +8,10 @@ const projects = [
         link: "https://invoice-generator-41ubdd5uf-yoichidev-techs-projects.vercel.app"
     },
     {
-        id: "brightwave",
-        title: "BrightWave-studio",
+        id: "prismwave",
+        title: "PrismWave-studio",
         description: "A modern responsive website...",
-        link: "https://bright-wave-studio.vercel.app"
+        link: "https://prismwave-studio.vercel.app"
     },
     {
         id: "servesync",
