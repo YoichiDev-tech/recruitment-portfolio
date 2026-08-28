@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 export default function HeroMain() {
   return (
     <section className="pt-14 pb-10 md:pt-20 md:pb-14 flex flex-col items-center text-center">
-      <div className="portrait-halo mb-10 animate-fade-up">
+      <div className="portrait-halo mt-6 mb-20 animate-fade-up">
         <img
           src={profile_pic1}
           alt="Portrait of O. Francesco Cole"
@@ -12,7 +12,7 @@ export default function HeroMain() {
         />
       </div>
 
-      <p className="font-mono text-xs text-accent tracking-widest mb-5 animate-fade-up-delay-1">
+      <p className="font-mono text-xs text-accent tracking-widest mb-8 animate-fade-up-delay-1">
         👋 HELLO, I'M FRANCESCO
       </p>
 
