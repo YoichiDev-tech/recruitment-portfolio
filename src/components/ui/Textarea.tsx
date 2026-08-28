@@ -1,11 +1,11 @@
-import type { InputHTMLAttributes } from "react";
+import type { TextareaHTMLAttributes } from "react";
 import { cn } from "../../utils/cn";
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   label?: string;
 };
 
-export default function Input({ label, id, className, ...rest }: InputProps) {
+export default function Textarea({ label, id, className, ...rest }: TextareaProps) {
   return (
     <div className="flex flex-col gap-1.5">
       {label && (
@@ -13,7 +13,7 @@ export default function Input({ label, id, className, ...rest }: InputProps) {
           {label.toUpperCase()}
         </label>
       )}
-      <input
+      <textarea
         id={id}
         className={cn(
           "bg-paper-raised border border-line rounded-lg px-4 py-3 text-ink placeholder:text-ink-faint focus:border-accent focus:outline-none transition",
