@@ -103,6 +103,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0; /* Shrinks the flexbox */
   transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
