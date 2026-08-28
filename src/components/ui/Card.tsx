@@ -14,7 +14,7 @@ export default function Card({ children, className, interactive, style }: CardPr
       style={style}
       className={cn(
         "panel-card p-6",
-        interactive && "hover:border-amber-dim hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(62,207,142,0.12)]",
+        interactive && "hover:border-accent hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(84,69,224,0.10)]",
         className
       )}
     >

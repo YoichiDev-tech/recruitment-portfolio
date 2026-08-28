@@ -5,12 +5,12 @@ import { cn } from "../../utils/cn";
 type Variant = "primary" | "secondary" | "ghost";
 
 const base =
-  "inline-flex items-center gap-2 rounded-md font-semibold px-5 py-3 transition disabled:opacity-50 disabled:pointer-events-none";
+  "inline-flex items-center gap-2 rounded-full font-semibold px-6 py-3 transition disabled:opacity-50 disabled:pointer-events-none";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-amber text-graphite hover:bg-amber-dim",
-  secondary: "border border-white/15 text-offwhite hover:border-amber hover:text-amber",
-  ghost: "text-slate hover:text-offwhite",
+  primary: "bg-ink text-paper hover:bg-accent",
+  secondary: "border border-ink/20 text-ink hover:border-accent hover:text-accent",
+  ghost: "text-ink-soft hover:text-ink",
 };
 
 type CommonProps = {

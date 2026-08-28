@@ -3,19 +3,19 @@ import { cn } from "../../utils/cn";
 
 type BadgeProps = {
   children: ReactNode;
-  tone?: "amber" | "wire" | "slate";
+  tone?: "accent" | "live" | "faint";
   className?: string;
 };
 
 const dotTone: Record<NonNullable<BadgeProps["tone"]>, string> = {
-  amber: "bg-amber shadow-[0_0_6px_rgba(62,207,142,0.9)]",
-  wire: "bg-wire shadow-none",
-  slate: "bg-slate shadow-none",
+  accent: "bg-accent shadow-[0_0_6px_rgba(84,69,224,0.6)]",
+  live: "bg-live shadow-[0_0_6px_rgba(46,139,87,0.6)]",
+  faint: "bg-ink-faint shadow-none",
 };
 
-export default function Badge({ children, tone = "amber", className }: BadgeProps) {
+export default function Badge({ children, tone = "accent", className }: BadgeProps) {
   return (
-    <span className={cn("inline-flex items-center gap-2 text-xs font-mono text-slate", className)}>
+    <span className={cn("inline-flex items-center gap-2 text-xs font-mono text-ink-soft", className)}>
       <span className={cn("w-[7px] h-[7px] rounded-full", dotTone[tone])} />
       {children}
     </span>

@@ -64,7 +64,7 @@ export default function ContactForm() {
       <Button type="submit" variant="primary" disabled={sending} className="w-fit">
         {sending ? "Sending…" : "Send message"}
       </Button>
-      {status && <p className="text-sm text-slate font-mono">{status}</p>}
+      {status && <p className="text-sm text-ink-soft font-mono">{status}</p>}
     </form>
   );
 }

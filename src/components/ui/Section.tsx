@@ -12,10 +12,10 @@ export default function Section({ children, eyebrow, title, className }: Section
   return (
     <section className={cn("py-16", className)}>
       {eyebrow && (
-        <p className="font-mono text-xs text-amber tracking-widest mb-4">{eyebrow}</p>
+        <p className="font-mono text-xs text-accent tracking-widest mb-4">{eyebrow}</p>
       )}
       {title && (
-        <h2 className="font-display text-3xl font-bold text-offwhite mb-6">{title}</h2>
+        <h2 className="font-display text-3xl font-bold text-ink mb-6">{title}</h2>
       )}
       {children}
     </section>

@@ -65,15 +65,15 @@ function EntryCard({ entry, delay = 0 }: { entry: Entry; delay?: number }) {
       style={{ animationDelay: `${delay}ms` }}
     >
       <div className="flex items-center justify-between">
-        <span className="font-mono text-xs text-amber tracking-widest">{entry.code}</span>
-        <Badge tone={entry.status === "live" ? "amber" : "wire"}>
+        <span className="font-mono text-xs text-accent tracking-widest">{entry.code}</span>
+        <Badge tone={entry.status === "live" ? "live" : "faint"}>
           {entry.status === "live" ? "deployed" : "prototype"}
         </Badge>
       </div>
-      <p className="font-mono text-[11px] text-slate -mt-2">logged {formatDate(entry.logged)}</p>
-      <h3 className="font-display text-xl font-semibold text-offwhite">{entry.title}</h3>
-      <p className="text-slate leading-relaxed">{entry.desc}</p>
-      <p className="font-mono text-xs text-slate">{entry.stack}</p>
+      <p className="font-mono text-[11px] text-ink-faint -mt-2">logged {formatDate(entry.logged)}</p>
+      <h3 className="font-display text-xl font-semibold text-ink">{entry.title}</h3>
+      <p className="text-ink-soft leading-relaxed">{entry.desc}</p>
+      <p className="font-mono text-xs text-ink-faint">{entry.stack}</p>
       <Button href={entry.href} variant="primary" className="w-fit mt-2">
         View project →
       </Button>
@@ -95,7 +95,7 @@ export default function Projects() {
       </section>
 
       <section>
-        <p className="font-mono text-xs text-slate tracking-widest mb-6">PROTOTYPES</p>
+        <p className="font-mono text-xs text-ink-soft tracking-widest mb-6">PROTOTYPES</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {prototypes.map((entry, i) => (
             <EntryCard key={entry.code} entry={entry} delay={i * 100} />

@@ -8,7 +8,7 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-graphite text-offwhite font-body">
+    <div className="min-h-screen flex flex-col bg-paper text-ink font-body">
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />
