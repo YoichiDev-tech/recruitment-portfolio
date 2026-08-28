@@ -21,10 +21,13 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+/* Smooth in-page anchor scrolling (nav links, etc.) */
 html {
   scroll-behavior: smooth;
 }
 
+/* Page background: faint grid lines + a soft indigo glow top-right,
+   plus the base cream paper color */
 body {
   background-color: var(--color-paper);
   background-image:
@@ -37,6 +40,7 @@ body {
   font-family: var(--font-body);
 }
 
+/* Text selection and keyboard-focus styling, tinted to the accent color */
 ::selection {
   background: var(--color-accent);
   color: var(--color-paper);
@@ -47,10 +51,19 @@ body {
   outline-offset: 3px;
 }
 
+/* Respect the OS/browser "reduce motion" accessibility setting by default —
+   but two signature animated elements are meant to keep moving regardless
+   of that setting, so they're explicitly excluded:
+   - .marquee-track  → the scrolling tech-stack strip
+   - .portrait-halo::after → the slow-spinning outer ring on the hero photo */
 @media (prefers-reduced-motion: reduce) {
-  *:not(.marquee-track) {
+  *:not(.marquee-track):not(.portrait-halo)::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  *:not(.marquee-track) {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
@@ -80,7 +93,8 @@ body {
 .animate-fade-up-delay-2 { animation: fade-up 600ms ease 200ms both; }
 .animate-fade-up-delay-3 { animation: fade-up 600ms ease 300ms both; }
 
-/* Signature element: breaker-switch skill toggles */
+/* Signature element: breaker-switch skill toggles — carried over from the
+   old dark theme, re-lit. The little rocker flips "live" on hover */
 .switch-plate {
   background: var(--color-paper-raised);
   border: 1px solid var(--color-line);
@@ -98,6 +112,7 @@ body {
   box-shadow: 0 10px 24px rgba(84, 69, 224, 0.10);
 }
 
+/* The rocker's track (the pill) */
 .switch-toggle {
   position: relative;
   width: 26px;
@@ -108,6 +123,7 @@ body {
   flex-shrink: 0;
 }
 
+/* The rocker's knob — slides right and lights up accent-color on hover */
 .switch-toggle::after {
   content: '';
   position: absolute;
@@ -126,10 +142,12 @@ body {
   box-shadow: 0 0 8px rgba(84, 69, 224, 0.6);
 }
 
+/* Dashed divider used between logged project entries */
 .log-rule {
   border-top: 1px dashed var(--color-line);
 }
 
+/* Base card surface used across skills, process, and project cards */
 .panel-card {
   background: var(--color-paper-raised);
   border: 1px solid var(--color-line);
@@ -137,6 +155,7 @@ body {
   transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
 }
 
+/* Small pulsing "live/open to work" indicator dot */
 .status-dot {
   width: 7px;
   height: 7px;
@@ -146,7 +165,10 @@ body {
   animation: pulse-dot 2.4s ease-in-out infinite;
 }
 
-/* Hero portrait halo */
+/* Hero portrait halo — two concentric rings around the profile photo.
+   ::before is the smaller, static inner ring
+   ::after is the larger outer ring, dashed and slowly rotating so the
+   motion actually reads (a solid ring spinning looks identical every frame) */
 .portrait-halo {
   position: relative;
 }
@@ -159,15 +181,37 @@ body {
   border: 1px solid var(--color-accent-soft);
 }
 
-/* Outer ring rotates slowly — dashed so the motion actually reads;
-   a solid circle spinning looks identical frame to frame */
+/* Outer ring: static orbit path — the dot below is what actually moves */
 .portrait-halo::after {
   content: '';
   position: absolute;
   inset: -42px;
   border-radius: 999px;
-  border: 1px dashed rgba(84, 69, 224, 0.35);
-  animation: spin-slow 16s linear infinite;
+  border: 1px solid rgba(84, 69, 224, 0.18);
+}
+
+/* Orbiting "planet": a rotating invisible track (matches the outer ring's
+   radius) carrying one small dot fixed at its top edge. Rotating the track
+   sweeps the dot around the photo — an actual circle-shaped ::after can't
+   show rotation on its own since it looks identical every frame. */
+.orbit-track {
+  position: absolute;
+  inset: -42px;
+  border-radius: 999px;
+  pointer-events: none;
+  animation: spin-slow 10s linear infinite;
+}
+
+.orbit-dot {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  margin-left: -4.5px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px rgba(84, 69, 224, 0.7);
 }
 
 @keyframes spin-slow {
@@ -182,6 +226,8 @@ body {
   animation: marquee 22s linear infinite;
 }
 
+/* Fades the marquee's edges to transparent so items scroll in/out smoothly
+   instead of clipping at the container's edge */
 .marquee-mask {
   -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);

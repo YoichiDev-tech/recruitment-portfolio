@@ -10,6 +10,10 @@ export default function HeroMain() {
           alt="Portrait of O. Francesco Cole"
           className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-paper-raised shadow-xl"
         />
+
+        <span className="orbit-track" aria-hidden="true">
+          <span className="orbit-dot" />
+        </span>
       </div>
 
       <p className="font-mono text-xs text-accent tracking-widest mb-8 animate-fade-up-delay-1">
