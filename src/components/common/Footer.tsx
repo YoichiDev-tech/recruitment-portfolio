@@ -6,28 +6,28 @@ export default function Footer() {
           © 2026 O. Francesco Cole — built with React, TypeScript &amp; Tailwind
         </p>
 
-        <div className="flex items-center gap-6 text-sm">
+        <div className="flex items-center gap-2 text-sm -mx-3">
           <a
             href="https://github.com/YoichiDev-tech"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-ink-soft hover:text-accent transition"
+            className="text-ink-soft hover:text-accent transition px-3 py-3"
           >
             GitHub
           </a>
 
-          <a
+          <a          
             href="https://www.linkedin.com/in/o-francesco-derek-cole-860b59427/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-ink-soft hover:text-accent transition"
+            className="text-ink-soft hover:text-accent transition px-3 py-3"
           >
             LinkedIn
           </a>
 
-          <a
+          <a          
             href="mailto:yoichi_dev@proton.me"
-            className="text-ink-soft hover:text-accent transition"
+            className="text-ink-soft hover:text-accent transition px-3 py-3"
           >
             Email
           </a>

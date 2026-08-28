@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <nav className="w-full bg-paper/90 border-b border-line sticky top-0 z-30 backdrop-blur supports-[backdrop-filter]:bg-paper/80">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="font-display text-base font-semibold tracking-tight text-ink hover:text-accent transition">
+        <Link to="/" className="font-display text-base font-semibold tracking-tight text-ink hover:text-accent transition py-3 -my-3">
           Francesco Cole
         </Link>
 
@@ -39,7 +39,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-1.5 p-3 -mr-3"
           onClick={() => setOpen((p) => !p)}
           aria-label="Toggle menu"
           aria-expanded={open}

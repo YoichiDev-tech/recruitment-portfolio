@@ -16,7 +16,7 @@ export default function FinalCTA() {
           Open to trainee and junior frontend roles in Italy, and remote
           — plus freelance work through BrightWave Studio.
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2">
           <Button to="/contact" variant="secondary" className="border-accent text-accent">
             Get in touch
           </Button>
@@ -24,13 +24,13 @@ export default function FinalCTA() {
             href="https://www.linkedin.com/in/o-francesco-derek-cole-860b59427/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-ink-soft hover:text-accent transition font-medium"
+            className="text-ink-soft hover:text-accent transition font-medium px-4 py-3"
           >
             LinkedIn
           </a>
-          <a
+          <a          
             href="mailto:yoichi_dev@proton.me"
-            className="text-ink-soft hover:text-accent transition font-medium"
+            className="text-ink-soft hover:text-accent transition font-medium px-4 py-3"
           >
             Email
           </a>

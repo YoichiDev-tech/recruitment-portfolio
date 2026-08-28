@@ -13,8 +13,11 @@ export default function Contact() {
         considering relocating for job opportunities.
       </p>
 
-      <Card className="mb-10 flex flex-col sm:flex-row gap-4 sm:gap-8 font-mono text-sm">
-        <a href="mailto:yoichi_dev@proton.me" className="text-ink hover:text-accent transition">
+      <Card className="mb-10 flex flex-col sm:flex-row sm:gap-4 font-mono text-sm !p-3">
+        <a
+          href="mailto:yoichi_dev@proton.me"
+          className="text-ink hover:text-accent transition px-3 py-3"
+        >
           yoichi_dev@proton.me
         </a>
 
@@ -22,16 +25,16 @@ export default function Contact() {
           href="https://www.linkedin.com/in/o-francesco-derek-cole-860b59427/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-ink hover:text-accent transition"
+          className="text-ink hover:text-accent transition px-3 py-3"
         >
           LinkedIn
         </a>
 
-        <a
+        <a        
           href="https://github.com/YoichiDev-tech"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-ink hover:text-accent transition"
+          className="text-ink hover:text-accent transition px-3 py-3"
         >
           GitHub
         </a>
